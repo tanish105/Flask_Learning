@@ -44,7 +44,6 @@ def generate_token(username):
     expiration = datetime.datetime.utcnow() + datetime.timedelta(hours=1)
     token = jwt.encode({'username': username, 'exp': expiration}, app.config['SECRET_KEY'], algorithm='HS256')
     return token
-
 @app.route("/signup", methods=['POST'])
 def signup():
     try:
